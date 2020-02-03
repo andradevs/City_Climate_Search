@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <form>
+        <div class='form'>
             <div class="inputs">
                 <label>Cidade:</label>
                 <input type="text" id="city">
@@ -49,15 +49,13 @@
                     <option value="TO">TO</option>
                 </select>
             </div>
-            <button type="submit" onclick="buscaTempo()">Pesquisar</button>
-        </form>
-        <div class="display" id="info">
-            <a>C</a>
-            <h1>Rio de Janeiro</h1>
-            <div class="temperature">
-                <p>24°C</p>
-                <img src="./200px/2n.png" alt=""></img>
+            <div class="btn">
+                <button type="button" onclick="buscaTempo()">
+                    Pesquisar
+                </button>
             </div>
+        </div>
+        <div class="display" id="info">
         </div>
     </div>
 </body>

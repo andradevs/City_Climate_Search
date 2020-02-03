@@ -10,40 +10,63 @@ const config = {
     }
 }
 
+const loader = document.createElement('img')
+loader.setAttribute('src', './img/loader.gif')
 
 
-async function buscaTempo() {
+
+async function buscaTempo(e) {
+
+    console.log('aaaaaaaaaaaa')
+
+    let btn = document.querySelector('.btn')
+    btn.appendChild(loader)
 
     const city = document.getElementById('city').value
     const state = document.getElementById('state').value
 
     // GET the cityId
     const cityID = await axios.get(`${proxy}${url}/api/v1/locale/city?name=${city}&state=${state}&token=${keyToken}`)
-        .then(res => res.data[0].id)
+        .then(res => res.data[0].id).catch(e => {
+            btn.removeChild(loader)
+            addInfo(404)
+        })
+    
+    console.log(cityID)
+
+    if (!cityID) return 'dsadas'
+
     console.log(cityID)
 
 
     await axios.put(`${proxy}http://apiadvisor.climatempo.com.br/api-manager/user-token/${keyToken}/locales`,
-        `localeId[]=${cityID}`,config)
-        .then(res=>console.log(res.data))
-        .catch(err=> console.log('deu ruim'))
+        `localeId[]=${cityID}`, config)
+        .then(res => console.log(res.data))
 
     const response = await axios.get(`${proxy}${url}/api/v1/weather/locale/${cityID}/current?token=${keyToken}`)
-    .then(res => res.data)
+        .then(res => res.data)
 
     console.log(response)
+    btn.removeChild(loader)
     addInfo(response)
-}
+    }
 
-function addInfo(res){
-    const div = document.getElementById('info')
-    const cityName = `<h1>${res.name}</h1>`
-    const temperature = `<p>${res.data.temperature}</p>`
-    const img = `<img src='./200px/${res.data.icon}'>`
-    div.appendChild(cityName)
-    div.appendChild(temperature)
-    div.appendChild(img)
-    
+function addInfo(res) {
+    const div = document.querySelector('#info')
+    if (!div.classList.contains('show')) div.classList.toggle('show')
+    if (res != 404) {
+        content =
+            `<a>C</a>
+            <h1>${res.name}</h1>
+            <div class="temperature">
+                <p>${res.data.temperature}°C</p>
+                <img src="./img/200px/${res.data.icon}.png" alt="${res.data.condition}"></img>
+            </div>`
+    }
+    else{
+        content = '<h1>Não Encontrada.</h1>'
+    }
 
+    div.innerHTML = content
 
 }
