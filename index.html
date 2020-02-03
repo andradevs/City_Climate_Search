@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="controller.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>ClimaTempo</title>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="inputs">
+                <label>Cidade:</label>
+                <input type="text" id="city">
+                <label>Estado:</label>
+                <select id="state">
+                    <option value="UF">UF</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+            <button type="submit" onclick="buscaTempo()">Pesquisar</button>
+        </form>
+        <div class="display" id="info">
+            <a>C</a>
+            <h1>Rio de Janeiro</h1>
+            <div class="temperature">
+                <p>24°C</p>
+                <img src="./200px/2n.png" alt=""></img>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
