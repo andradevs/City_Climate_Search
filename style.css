@@ -24,7 +24,7 @@ body {
     
 }
 
-.form{
+form{
     align-self: center;
     background-color:#eef9bf;
     border-radius: 5px;
@@ -71,7 +71,7 @@ button{
     border: none;
     text-align: center;
 }
-.form img{
+form img{
     height: 25px;
     width: 20px;
     padding-bottom: 5px;

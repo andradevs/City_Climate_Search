@@ -10,13 +10,18 @@ const config = {
     }
 }
 
+let form = document.querySelector('form')
+console.log(form)
+form.addEventListener('submit',buscaTempo)
+
 const loader = document.createElement('img')
 loader.setAttribute('src', './img/loader.gif')
 
 
 
 async function buscaTempo(e) {
-
+    
+    e.preventDefault()
     console.log('aaaaaaaaaaaa')
 
     let btn = document.querySelector('.btn')

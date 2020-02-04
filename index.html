@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script src="controller.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>ClimaTempo</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class='form'>
+     <div class="container">
+        <form>
             <div class="inputs">
                 <label>Cidade:</label>
                 <input type="text" id="city">
@@ -50,14 +49,15 @@
                 </select>
             </div>
             <div class="btn">
-                <button type="button" onclick="buscaTempo()">
+                <button type="submit">
                     Pesquisar
                 </button>
             </div>
-        </div>
+        </form>
         <div class="display" id="info">
         </div>
     </div>
 </body>
+<script src="controller.js"></script>
 
 </html>
