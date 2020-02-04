@@ -95,6 +95,8 @@ button{
     justify-self: start;
     margin: 5px;
     cursor: pointer;
+    text-decoration: underline;
+    user-select: none;
 }
 
 .display a:hover{

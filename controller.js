@@ -59,14 +59,36 @@ function addInfo(res) {
             `<a>C</a>
             <h1>${res.name}</h1>
             <div class="temperature">
-                <p>${res.data.temperature}°C</p>
+                <p temp ='${res.data.temperature}'>${res.data.temperature}°C</p>
                 <img src="./img/200px/${res.data.icon}.png" alt="${res.data.condition}"></img>
             </div>`
+            div.innerHTML = content
+            a = document.querySelector('#info a')
+            a.onclick = convert
     }
     else{
         content = '<h1>Não Encontrada.</h1>'
+        div.innerHTML = content
     }
 
-    div.innerHTML = content
+    
 
+}
+
+function convert(e){
+    e.preventDefault()
+    temp = document.querySelector('#info p')
+    unit = document.querySelector('#info a')
+    if(unit.innerHTML == 'C'){
+        newValue = Math.round(parseInt(temp.getAttribute('temp')) * (9/5) + 32)
+        temp.setAttribute('temp',`${newValue}`)
+        temp.innerHTML = `${newValue}°F`
+        unit.innerHTML = 'F'
+    }else{
+        newValue = Math.round((parseInt(temp.getAttribute('temp'))-32) * (5/9))
+        temp.setAttribute('temp',`${newValue}`)
+        temp.innerHTML = `${newValue}°C`
+        unit.innerHTML = 'C'
+    }
+    
 }
